@@ -1,6 +1,6 @@
 <input type="text" [(ngModel)]="title"/>
 
-<button (click)="addItem()" > Add item </button>
+<button (click)="addItem(title)" > Add item </button>
 
 <ul>
   <li *ngIf="items.length === 0"> Empty </li>
@@ -8,3 +8,19 @@
     {{name}} - {{i}} <button (click)="deleteItem(i)" > Delete item </button>
   </li>
 </ul>
+
+<h1>{{ title }}</h1>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'Julian'">Julian</p>
+  <p *ngSwitchCase="'Victor'">Victor</p>
+  <p *ngSwitchCase="'Andrea'">Andrea</p>
+  <p *ngSwitchDefault>No hay</p>
+</div>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" [alt]="'img of ' + product.title">
+
+</div>
+
