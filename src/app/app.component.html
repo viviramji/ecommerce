@@ -1,11 +1,10 @@
 <input type="text" [(ngModel)]="title"/>
 
-<ul>
-  <li *ngFor="let i of numbers">
-    {{i}}
-  </li>
-</ul>Ecommerce
+<button (click)="addItem()" > Add item </button>
 
-<p>
-{{ title }}
-</p>
+<ul>
+  <li *ngIf="items.length === 0"> Empty </li>
+  <li *ngFor="let name of items; index as i">
+    {{name}} - {{i}} <button (click)="deleteItem(i)" > Delete item </button>
+  </li>
+</ul>
