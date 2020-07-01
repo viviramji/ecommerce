@@ -59,11 +59,11 @@ export class AppComponent {
     this.items.push(newItem);
   }
 
-  deleteItem(index: number) {
+  deleteItem(index: number): void {
     this.items.splice(index, 1);
   }
 
-  clickProduct(id: string) {
+  clickProduct(id: string): void {
     console.log(`Product id ${id}`);
   }
 }
