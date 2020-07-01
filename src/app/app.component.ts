@@ -1,4 +1,4 @@
-import { Product } from './product.model';
+import { Product } from './models/product.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -61,5 +61,9 @@ export class AppComponent {
 
   deleteItem(index: number) {
     this.items.splice(index, 1);
+  }
+
+  clickProduct(id: string) {
+    console.log(`Product id ${id}`);
   }
 }

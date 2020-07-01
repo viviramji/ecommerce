@@ -1,0 +1,7 @@
+<h3>{{ product.title }}</h3>
+<div>
+    <img [src]="product.image" [alt]="'img of ' + product.title">
+</div>
+<p>{{ product.price | currency:'USD' }}</p>
+
+<button (click)="addCart()">Add to Cart</button>
