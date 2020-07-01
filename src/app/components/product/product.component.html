@@ -2,6 +2,8 @@
 <div>
     <img [src]="product.image" [alt]="'img of ' + product.title">
 </div>
-<p>{{ product.price | currency:'USD' }}</p>
+<p>{{ product.price | currency }}</p>
+<p>{{ product.description | slice: 0:3 }}</p>
+<p>{{ now | date:'HH:mm' }}</p>
 
 <button (click)="addCart()">Add to Cart</button>

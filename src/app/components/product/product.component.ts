@@ -18,6 +18,7 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit, OnChanges {
+  now = new Date();
   @Input() product: Product;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
