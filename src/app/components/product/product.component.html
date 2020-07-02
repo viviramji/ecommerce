@@ -4,6 +4,6 @@
 </div>
 <p>{{ product.price | currency }}</p>
 <p>{{ product.description | slice: 0:3 }}</p>
-<p>{{ now | date:'HH:mm' }}</p>
+<a [routerLink]="['/products', product.id]">See more</a>
 
 <button (click)="addCart()">Add to Cart</button>
