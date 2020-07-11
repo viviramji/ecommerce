@@ -42,6 +42,15 @@ const routes: Routes = [
       },
     ],
   },
+
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./components/admin/admin.module').then(
+        (module) => module.AdminModule
+      ),
+  },
+
   {
     path: 'demo',
     component: DemoComponent,
