@@ -12,6 +12,10 @@ const routes: Routes = [
     component: AdminNavComponent,
     children: [
       {
+        path: '',
+        component: AdminDashboardComponent,
+      },
+      {
         path: 'dashboard',
         component: AdminDashboardComponent,
       },
