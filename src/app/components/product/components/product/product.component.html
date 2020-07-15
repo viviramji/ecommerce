@@ -9,12 +9,13 @@
     </div>
     <mat-card-content>
         <p>
-            {{product.description}}
+            {{product.description}} <br/>
+            {{product.id}}
         </p>
     </mat-card-content>
 
     <mat-card-actions>
-        <a mat-raised-button [routerLink]="['/products', product.id]">See more</a>
+        <a mat-raised-button [routerLink]="['/products/', product.id]">See more</a>
         <button (click)="addCart()" mat-raised-button color="primary">Add to Cart</button>
     </mat-card-actions>
 

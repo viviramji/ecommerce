@@ -3,10 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
-  { path: ':id',component: ProductComponent },
+  { path: ':id',component: ProductDetailComponent }, //I HATE YOU MOTHER FUCKER!
 ];
 
 @NgModule({

@@ -23,17 +23,17 @@ export class ProductComponent implements OnInit, OnChanges {
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    console.log('1. constructor');
+    //console.log('1. constructor');
   }
 
   ngOnInit(): void {
-    console.log(' 3. on init');
+    //console.log(' 3. on init');
     // It's a good practice to call data services from this method
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('2. ngOnChanges');
-    console.log(changes);
+    //console.log('2. ngOnChanges');
+    //console.log(changes);
   }
 
   /**
