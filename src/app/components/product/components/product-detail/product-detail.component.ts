@@ -31,4 +31,19 @@ export class ProductDetailComponent implements OnInit {
       this.product = product;
     });
   }
+
+  createProduct() {
+    alert('xd');
+    console.log('xD');
+    const newProduct: Product = {
+      id: '21',
+      title: 'XD',
+      price: 150,
+      description: 'Vale lo que vale tu kokoro',
+      image: 'src\\assets\\images\\pin.png',
+    };
+    this.productsService.createProduct(newProduct).subscribe((product) => {
+      console.log(product);
+    });
+  }
 }
