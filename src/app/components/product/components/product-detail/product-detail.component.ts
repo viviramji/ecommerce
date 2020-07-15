@@ -33,8 +33,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   createProduct() {
-    alert('xd');
-    console.log('xD');
     const newProduct: Product = {
       id: '21',
       title: 'XD',
@@ -45,5 +43,26 @@ export class ProductDetailComponent implements OnInit {
     this.productsService.createProduct(newProduct).subscribe((product) => {
       console.log(product);
     });
+  }
+
+  updateProduct() {
+    const updateProduct: Partial<Product> = {
+      title: 'Kokoro -> El Cora',
+      price: 15,
+      description: 'Vale lo que vale tu kokoro',
+    };
+    this.productsService
+      .updateProduct('212', updateProduct)
+      .subscribe((product) => {
+        console.log(product);
+      });
+  }
+
+  deleteProduct() {
+    this.productsService
+      .deleteProduct('21')
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }

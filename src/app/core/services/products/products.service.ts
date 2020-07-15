@@ -19,7 +19,15 @@ export class ProductsService {
   }
 
   createProduct(product: Product) {
-    //path to post 
+    //path to post url + path + product
     return this.http.post(`${environment.url_api}/products`, product);
+  }
+
+  updateProduct(id: string, changes: Partial<Product>) {
+    return this.http.put(`${environment.url_api}/products/${id}`, changes);
+  }
+
+  deleteProduct(id: string) {
+    return this.http.delete(`${environment.url_api}/products/${id}`);
   }
 }
