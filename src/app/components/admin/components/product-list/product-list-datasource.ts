@@ -4,6 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
+import { ProductsService } from './../../../../core/services/products/products.service';
+
+
 // TODO: Replace this with your own data model type
 export interface ProductListItem {
   name: string;
@@ -44,7 +47,7 @@ export class ProductListDataSource extends DataSource<ProductListItem> {
   paginator: MatPaginator;
   sort: MatSort;
 
-  constructor() {
+  constructor(private productsServices: ProductsService) {
     super();
   }
 

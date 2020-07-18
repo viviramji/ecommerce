@@ -1,21 +1,43 @@
+import { ProductsService } from './../../../../core/services/products/products.service';
+import { Product } from 'src/app/models/product.model'
+
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ProductListDataSource, ProductListItem } from './product-list-datasource';
+import {
+  ProductListDataSource,
+  ProductListItem,
+} from './product-list-datasource';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements AfterViewInit, OnInit {
+export class ProductListComponent implements OnInit {
+  products: Product[] = [];
+  displayedColumns: string[] = ['id', 'title', 'price', 'action'];
+
+  constructor(private productsService: ProductsService) {}
+
+  ngOnInit() {
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.productsService.getAllProducts().subscribe((products) => {
+      this.products = products;
+    });  
+  }
+}
+
+/* export class ProductListComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<ProductListItem>;
   dataSource: ProductListDataSource;
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
 
   ngOnInit() {
@@ -27,4 +49,4 @@ export class ProductListComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
-}
+} */
