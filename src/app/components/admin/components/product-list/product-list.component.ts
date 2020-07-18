@@ -30,6 +30,17 @@ export class ProductListComponent implements OnInit {
       this.products = products;
     });  
   }
+
+  deleteProduct(id: string) {
+    this.productsService.deleteProduct(id).subscribe((res) => {
+      if (res){
+        //this.products = this.products.filter(e => e.id !== id);
+        const index = this.products.findIndex(product => product.id === id);
+        this.products.splice(index, 1);
+        this.products = [...this.products];
+      }
+    })
+  }
 }
 
 /* export class ProductListComponent implements AfterViewInit, OnInit {
