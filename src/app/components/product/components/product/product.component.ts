@@ -8,6 +8,8 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
+import { CartService } from './../../../../core/services/cart/cart.service';
+
 import { Product } from 'src/app/models/product.model';
 
 /** Represents the metadata of the component */
@@ -22,7 +24,7 @@ export class ProductComponent implements OnInit, OnChanges {
   @Input() product: Product;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
+  constructor(private cartService: CartService) {
     //console.log('1. constructor');
   }
 
@@ -48,7 +50,12 @@ export class ProductComponent implements OnInit, OnChanges {
    */
 
   addCart(): void {
-    console.log('hello from component child');
-    this.productClicked.emit(this.product.id);
+    console.log('Add to the little cart');
+
+    // * adding the cart
+
+    this.cartService.addCart(this.product);
+
+    /* this.productClicked.emit(this.product.id); */
   }
 }
